@@ -2,6 +2,7 @@
 from tkinter import *
 import tkinter as tk
 from tkinter.ttk import *
+from tkinter import messagebox
 
 def funcionDatos():
     newWindow = tk.Toplevel(root)
@@ -96,7 +97,25 @@ combo['values']= (1, 2, 3, 4, 5)
 combo.current(1) #set the selected item
 combo.grid(column=0, row=14)
 
+lblCheckBox = Label(root, text="", font=("Arial Bold", 10))
+lblCheckBox.grid(column=0, row=19)
+def funcionAlertar():
+    mensaje = "Usted marcó la casilla"
+    lblCheckBox.configure(text = mensaje)
 
+#checkbox
+chk_state = BooleanVar()
+chk_state.set(False) #set check state
+chk = Checkbutton(root, text='Marque la casilla', var=chk_state,command=funcionAlertar)
+chk.grid(column=0, row=18)
+
+#radio button
+rad1 = Radiobutton(root,text='First', value=1)
+rad2 = Radiobutton(root,text='Second', value=2)
+rad3 = Radiobutton(root,text='Third', value=3)
+rad1.grid(column=0, row=20)
+rad2.grid(column=0, row=21)
+rad3.grid(column=0, row=22)
 
 # Finalmente bucle de la aplicación
 root.mainloop()
