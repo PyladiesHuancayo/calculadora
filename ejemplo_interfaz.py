@@ -17,8 +17,10 @@ def funcionDatos():
 
 # Configuración de la raíz
 root = Tk()
+win = tk.Toplevel(root)
 root.title("Calculadora PyLadies")
 root.geometry('350x500')
+root.resizable(width=False, height=False)
 menubar = Menu(root)
 root.config(menu=menubar)
 
@@ -116,6 +118,13 @@ rad3 = Radiobutton(root,text='Third', value=3)
 rad1.grid(column=0, row=20)
 rad2.grid(column=0, row=21)
 rad3.grid(column=0, row=22)
+
+#MessageBox
+def clicked():
+    messagebox.showinfo('Message title', 'Message content')
+
+btn = Button(root,text='Ver Mensaje', command=clicked)
+btn.grid(column=0,row=24)
 
 # Finalmente bucle de la aplicación
 root.mainloop()
